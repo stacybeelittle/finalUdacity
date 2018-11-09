@@ -11,7 +11,10 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 12
+      zoom: 12,
+      updateSuperState: obj => {
+        this.setState(obj);
+      }
     };
   }
   /*Closes one window when another window is clicked*/
@@ -36,11 +39,17 @@ class App extends Component {
     });
   };
 
+  handleListItemClick = venue => {
+   const marker = this.state.markers.find(marker => marker.id === venue.id);
+    this.handleMarkerClick(marker);
+    console.log(venue);
+  };
+
   componentDidMount() {
     SquareAPI.search({
       near: "Lexington, KY",
       query: "horse",
-      limit: 17
+      limit: 25
     }).then(results => {
       const { venues } = results.response;
       const { center } = results.response.geocode.feature.geometry;
@@ -60,8 +69,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar {...this.state} />
-        <Map {...this.state} handleMarkerClick={this.handleMarkerClick} />
+        <Sidebar 
+        {...this.state} 
+        handleListItemClick={this.handleListItemClick} 
+        />
+        <Map 
+        {...this.state} 
+        handleMarkerClick={this.handleMarkerClick} />
       </div>
     );
   }
