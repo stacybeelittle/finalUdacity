@@ -40,6 +40,7 @@ export default class Sidebar extends Component {
         return (
             <div className="sideBar">
                 <input 
+                    aria-label="Filter Venues"
                     tabIndex={0}
                     type={"search"} 
                     id={"search"} 

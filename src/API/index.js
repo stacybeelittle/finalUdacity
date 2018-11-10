@@ -1,3 +1,6 @@
+
+/*grabs API and the info needed to populate map*/
+
 class Helper {
     static baseURL() {
         return "https://api.foursquare.com/v2";
@@ -51,7 +54,7 @@ export default class SquareAPI {
     static getVenueHours(VENUE_ID) {
         return Helper.simpleFetch(`/venues/${VENUE_ID}/hours`, "GET")
     }
-    static getVenueHours(VENUE_ID) {
+    static getVenueLinks(VENUE_ID) {
         return Helper.simpleFetch(`/venues/${VENUE_ID}/links`, "GET")
     }
 }

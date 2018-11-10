@@ -21,16 +21,18 @@ const MyMapComponent = withScriptjs(withGoogleMap((props =>
         const venueInfo = props.venues.find(venue => venue.id === marker.id);
         return ( 
         <Marker 
+          aria-label="Google map"
           key={idx} 
           position={{ lat: marker.lat, lng: marker.lng }}
           onClick={() => props.handleMarkerClick(marker)}
           animation={arr.length ===1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP}
           >
+
           {marker.isOpen && venueInfo.bestPhoto && (
           <InfoWindow>
             <React.Fragment>
               <img src={`${venueInfo.bestPhoto.prefix}150x150${venueInfo.bestPhoto.suffix}`}
-              alt={"Venue Image"}
+              alt={"Venue"}
               />
               <p>{venueInfo.name}</p>
               <p>{venueInfo.location.address}</p>
