@@ -4,7 +4,8 @@ export default class ListItem extends Component {
     render() {
         return (<li className="listItem" 
         onClick={() => this.props.handleListItemClick(this.props)} >
-            {this.props.name}
+            <p>{this.props.name}</p> 
+            <p>{this.props.url}</p>
         </li>);
     }
 }

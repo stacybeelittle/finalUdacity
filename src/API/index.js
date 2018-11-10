@@ -48,4 +48,10 @@ export default class SquareAPI {
     static getVenuePhotos(VENUE_ID) {
         return Helper.simpleFetch(`/venues/${VENUE_ID}/photos`, "GET");
     }
+    static getVenueHours(VENUE_ID) {
+        return Helper.simpleFetch(`/venues/${VENUE_ID}/hours`, "GET")
+    }
+    static getVenueHours(VENUE_ID) {
+        return Helper.simpleFetch(`/venues/${VENUE_ID}/links`, "GET")
+    }
 }

@@ -10,7 +10,7 @@ export default class Sidebar extends Component {
     }
     /*Filters the Venue List itself according to search queries*/
     handleFilterVenues = () => {
-        if (this.state.query.trim() != "") {
+        if (this.state.query.trim() !== "") {
             const venues = this.props.venues.filter(venue =>
                 venue.name.toLowerCase().includes(this.state.query.toLowerCase())
             );
@@ -40,6 +40,7 @@ export default class Sidebar extends Component {
         return (
             <div className="sideBar">
                 <input 
+                    tabIndex={0}
                     type={"search"} 
                     id={"search"} 
                     placeholder={"Filter Venues"}

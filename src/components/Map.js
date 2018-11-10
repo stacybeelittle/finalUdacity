@@ -33,6 +33,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props =>
               alt={"Venue Image"}
               />
               <p>{venueInfo.name}</p>
+              <p>{venueInfo.location.address}</p>
             </React.Fragment>
           </InfoWindow>
           )}
